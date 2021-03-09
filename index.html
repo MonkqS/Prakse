@@ -139,19 +139,22 @@ input:checked + .slider:before {
 					BARCODE
 				</div>
 				<br><br><br><br><br>
-				<div align="center">
-					<div class="scanner"></div>
-					<br>
-					<div class="popup" onclick="myFunction()">Ieskenet 
-					<span class="popuptext" id="myPopup">Detaļas NR <br><br><br><br> <button onclick="NewPart()">Jaunā detaļa</button></span>
-					</div>
+				<div id="container">
+				    <h1>QR Code Scanner</h1>
 
+				    <a id="btn-scan-qr">
+					<img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+				    <a/>
+
+				    <canvas hidden="" id="qr-canvas"></canvas>
+
+				    <div id="qr-result" hidden="">
+					<b>Data:</b> <span id="outputData"></span>
+				    </div>
 				</div>
-				
-				</div>
 
 
-
+			<script src="./src/qrCodeScanner.js"></script>
 			<script>
 				function myFunction() {
 					  var popup = document.getElementById("myPopup");
