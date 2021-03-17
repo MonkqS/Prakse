@@ -9,8 +9,21 @@
  </head>
 
  <body>
-	<button class="access-QR">QR Scanner</button>
-	<button class="access-Barcode">Barcode Scanner</button> <br>
-	<iframe id="viewer" src="http://localhost/ralfs/">Your browser doesn't support iFrames</iframe>
+	<input type="button" class="access-QR" value="QR Scanner" onclick="scen('qr')">
+	<input type="button" class="access-Barcode" value="Barcode Scanner" onclick="scen('bar')">
+	<br>
+	<iframe id="viewer" src="">Your browser doesn't support iFrames</iframe>
  </body>
+ <script>
+	scen('qr');
+	function scen(type){
+		if (type=="qr"){
+			links="./../QR/index.html";
+		}
+		if (type=="bar"){
+			links="./../BARCODE/index.html";
+		}
+		document.getElementById("viewer").src=links;
+	}
+ </script>
 </html>
