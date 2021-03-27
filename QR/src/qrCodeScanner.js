@@ -12,7 +12,8 @@ let scanning = false;
 
 qrcode.callback = res => {
   if (res) {
-    outputData.innerText = res;
+    //outputData.innerText = res;
+	outputData.value = res;
     scanning = false;
 
     video.srcObject.getTracks().forEach(track => {
@@ -30,7 +31,7 @@ btnScanQR.onclick = () => {
     .getUserMedia({ video: { facingMode: "environment" } })
     .then(function(stream) {
       scanning = true;
-      qrResult.hidden = true;
+      qrResult.hidden = false;
       btnScanQR.hidden = true;
       canvasElement.hidden = false;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -56,5 +57,17 @@ function scan() {
     setTimeout(scan, 300);
   }
 }
+function myFunctionCopy() {
+  /* Get the text field */
+  var copyText = document.getElementById("outputData");
+	//alert(copyText.innerHTML);
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
 
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
